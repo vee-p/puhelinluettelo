@@ -6,12 +6,16 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf dist && cd ../../../../puhelinluettelo_frontend && npm run build && cp -r dist ../../fs2025_puhelinluettelo",
+    "deploy:full": "npm run build:ui && git add . git commit -m uibuild && git push"
   },
   "author": "vee-p",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "mongoose": "^8.15.2",
     "morgan": "^1.10.0"
   }
 }
